@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>メンバーアプリ</title>
+</head>
+<body>
+<h1>メンバーアプリへようこそ</h1>
+
+<form>
+<select size="4" name ="menu">
+	<option value="memberlist.php" selected>メンバー表一覧</option>
+	<option value="searchmember.php">メンバー検索</option>
+	<option value="insertmember.php">メンバー追加</option>
+	<option value="deletemember.php">メンバー削除</option>
+</select>
+<input type="button" onClick="top.location.href=menu.value" value="選択"/>
+</form>
+
+</body>
+</html>

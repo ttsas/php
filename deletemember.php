@@ -1,3 +1,12 @@
+
+<?php
+	session_start();
+	if( !isset($_SESSION["usr"]) ){
+		header('location: login.php');
+		exit();
+	}
+?>
+
 <html>
 <head>
 	<title>メンバーアプリ</title>
@@ -40,6 +49,16 @@
 <form action="board.php" method="post">
 	<input type="submit" value="メニューへ戻る"/>
 </form>
-
+<?php
+	if(isset($_POST["usr"])){
+	   $name = $_POST["usr"];
+	   $_SESSION["usr"] = $name;
+	}
+	if( !isset($_SESSION["usr"]) ){
+	} else {
+		$name = $_SESSION["usr"];
+		print "Name：{$name}でログイン中<br/><br/>\n";
+	}
+?>
 </body>
 </html>

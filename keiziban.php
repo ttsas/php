@@ -1,3 +1,12 @@
+
+<?php
+	session_start();
+	if( !isset($_SESSION["usr"]) ){
+		header('location: login.php');
+		exit();
+	}
+?>
+
 <html>
 <head>
 	<title>PHP TEST</title>
@@ -8,7 +17,16 @@
 <form action="board.php" method="post">
 	<input type="submit" value="メニューへ戻る"/>
 </form>
-
+<?php
+if(isset($_POST["usr"])){
+	$name = $_POST["usr"];
+	$_SESSION["usr"] = $name;
+}
+if( isset($_SESSION["usr"]) ){
+	$name = $_SESSION["usr"];
+	print "Name：{$name}でログイン中<br/><br/>\n";
+}
+?>
 <h1>掲示板</h1>
 
 <form method="POST" action="keiziban.php">

@@ -1,5 +1,12 @@
+
+<?php
+	session_start();
+
+?>
+
 <html>
 <head>
+
 	<title>メンバーアプリ</title>
 </head>
 <body>
@@ -16,6 +23,16 @@
 	</select>
 	<input type="button" onClick="top.location.href=menu.value" value="選択"/>
 </form>
-
+<?php
+	if(isset($_POST["usr"])){
+	   $name = $_POST["usr"];
+	   $_SESSION["usr"] = $name;
+	}
+	if( !isset($_SESSION["usr"]) ){
+	} else {
+		$name = $_SESSION["usr"];
+		print "Name：{$name}でログイン中<br/><br/>\n";
+	}
+?>
 </body>
 </html>
